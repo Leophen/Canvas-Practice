@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Canvas-七巧板</title>
+  <link rel="stylesheet" href="./style/style.css">
+</head>
+<body>
+  <canvas id="canvas-tangram"></canvas>
+</body>
+<script type="text/javascript">
+  var canvas = document.getElementById("canvas-tangram");
+  
+  canvas.width = 700;
+  canvas.height = 700;
+
+  if( canvas.getContext("2d") ) {
+    var context = canvas.getContext("2d");
+  }
+  else {
+    alert("当前浏览器不支持Canvas，请更换浏览器后再试");
+  }
+  
+  context.beginPath();
+  context.moveTo(0,0);
+  context.lineTo(350,350);
+  context.lineTo(0,700);
+  context.lineTo(0,0);
+  context.fillStyle = "#6ebcd0";
+  context.fill();
+  context.closePath();
+
+  context.beginPath();
+  context.moveTo(0,0);
+  context.lineTo(350,350);
+  context.lineTo(700,0);
+  context.lineTo(0,0);
+  context.fillStyle = "#d0fb67";
+  context.fill();
+  context.closePath();
+
+  context.beginPath();
+  context.moveTo(700,0);
+  context.lineTo(700,350);
+  context.lineTo(525,525);
+  context.lineTo(525,175);
+  context.lineTo(700,0);
+  context.fillStyle = "#ea4464";
+  context.fill();
+  context.closePath();
+
+  context.beginPath();
+  context.moveTo(350,350);
+  context.lineTo(525,175);
+  context.lineTo(525,525);
+  context.lineTo(350,350);
+  context.fillStyle = "#f9f415";
+  context.fill();
+  context.closePath();
+
+  context.beginPath();
+  context.moveTo(350,350);
+  context.lineTo(525,525);
+  context.lineTo(350,700);
+  context.lineTo(175,525);
+  context.lineTo(350,350);
+  context.fillStyle = "#a794c4";
+  context.fill();
+  context.closePath();
+
+  context.beginPath();
+  context.moveTo(175,525);
+  context.lineTo(350,700);
+  context.lineTo(0,700);
+  context.lineTo(175,525);
+  context.fillStyle = "#f391ce";
+  context.fill();
+  context.closePath();
+
+  context.beginPath();
+  context.moveTo(700,350);
+  context.lineTo(700,700);
+  context.lineTo(350,700);
+  context.lineTo(700,350);
+  context.fillStyle = "#f4c824";
+  context.fill();
+  context.closePath();
+
+</script>
+</html>
