@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Canvas-七巧板2.0</title>
+  <link rel="stylesheet" href="./style/style.css">
+</head>
+<body>
+  <canvas id="canvas-tangram"></canvas>
+</body>
+<script type="text/javascript">
+  var tangram = [
+    {
+      p:[
+        {x:0,y:0},
+        {x:350,y:350},
+        {x:0,y:700},
+        {x:0,y:0}
+      ],
+      color:'#6ebcd0'
+    },
+    {
+      p:[
+        {x:0,y:0},
+        {x:350,y:350},
+        {x:700,y:0},
+        {x:0,y:0}
+      ],
+      color:'#d0fb67'
+    },
+    {
+      p:[
+        {x:700,y:0},
+        {x:700,y:350},
+        {x:525,y:525},
+        {x:525,y:175},
+        {x:700,y:0}
+      ],
+      color:'#ea4464'
+    },
+    {
+      p:[
+        {x:350,y:350},
+        {x:525,y:175},
+        {x:525,y:525},
+        {x:350,y:350}
+      ],
+      color:'#f9f415'
+    },
+    {
+      p:[
+        {x:350,y:350},
+        {x:525,y:525},
+        {x:350,y:700},
+        {x:175,y:525},
+        {x:350,y:350}
+      ],
+      color:'#a794c4'
+    },
+    {
+      p:[
+        {x:175,y:525},
+        {x:350,y:700},
+        {x:0,y:700},
+        {x:175,y:525}
+      ],
+      color:'#f391ce'
+    },
+    {
+      p:[
+        {x:700,y:350},
+        {x:700,y:700},
+        {x:350,y:700},
+        {x:700,y:350}
+      ],
+      color:'#f4c824'
+    }
+  ]
+
+  window.onload = function() {
+    var canvas = document.getElementById("canvas-tangram");
+
+    canvas.width = 700;
+    canvas.height = 700;
+
+    if( canvas.getContext("2d") ) {
+      var context = canvas.getContext("2d");
+    }
+    else {
+      alert("当前浏览器不支持Canvas，请更换浏览器后再试");
+    }
+
+    for(var i = 0; i < tangram.length; i++) {
+      draw( tangram[i] , context)
+    }
+
+    function draw( piece, context ) {
+      context.beginPath();
+      context.moveTo( piece.p[0].x, piece.p[0].y );
+      for( var i =1; i < piece.p.length; i++) {
+        context.lineTo( piece.p[i].x, piece.p[i].y );
+      }
+      context.closePath();
+      context.fillStyle = piece.color;
+      context.fill();
+      context.strokeStyle = "#000";
+      context.lineWidth = 5;
+      context.stroke();
+    }
+  }
+
+</script>
+</html>
